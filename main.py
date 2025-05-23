@@ -19,7 +19,7 @@ def main():
                 if value in status_journal:
                     pass
                 else:
-                    status_journal[value] = "Idle"
+                    status_journal[value] = "idle"
             print()
             print("Succesfully added quest")
             print()
@@ -36,7 +36,7 @@ def main():
     
 
 def add_quest():
-    added_quest = input("what quest to enter journal: ")
+    added_quest = input("what quest to enter journal: ").lower()
     return added_quest
 
 def status_quest(status_journal):
@@ -44,21 +44,36 @@ def status_quest(status_journal):
         print("Type 1 to mark a quest as active")
         print("Type 2 to mark a quest as idle")
         print("Type 3 to mark a quest as complete")
+        print("Type 0 to quit this menu")
         print("")
         change = int(input("Select a number: "))
         if change == 1:
             print("Quests")
             print(status_journal)
-            active = input("Select a quest to mark as active (type the name of the quest)")
+            active = input("Select a quest to mark as active (type the name of the quest)").lower()
             if active in status_journal:
                 status_journal[active] = "active"
             else:
                 print("quest not found")
                 print()
         elif change == 2:
-            pass
+            print("Quests")
+            print(status_journal)
+            idle = input("Select a quest to mark as idle (type the name of the quest)").lower()
+            if idle in status_journal:
+                status_journal[idle] = "idle"
+            else:
+                print("quest not found")
+                print()
         elif change == 3:
-            pass
+            print("Quests")
+            print(status_journal)
+            complete = input("Select a quest to mark as complete (type the name of the quest)").lower()
+            if complete in status_journal:
+                status_journal[complete] = "complete"
+            else:
+                print("quest not found")
+                print()
         elif change == 0:
             break
         else:
